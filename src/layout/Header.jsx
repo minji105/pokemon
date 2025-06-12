@@ -14,6 +14,10 @@ function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleScrollTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <header
       ref={headerRef}
@@ -23,7 +27,9 @@ function Header() {
     >
       <div className="col-span-1 flex justify-center items-center outline outline-1">
         <h1 className="p-2 text-7xl font-black">
-          <Link to="/">pokemon</Link>
+          <Link to="/" onClick={handleScrollTop}>
+            pokemon
+          </Link>
         </h1>
       </div>
       <div className="flex flex-col text-2xl md:text-3xl lg:text-3xl">
