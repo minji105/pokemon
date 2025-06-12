@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import "./App.css";
 import { useDispatch } from "react-redux";
 import { fetchMultiplePokemonById } from "./RTK/thunk";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Main from "./pages/Main";
 import Detail from "./pages/Detail";
 import Search from "./pages/Search";
@@ -17,7 +17,7 @@ function App() {
   }, []);
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Header />
       <Routes>
         <Route path={"/"} element={<Main />} />
@@ -25,7 +25,7 @@ function App() {
         <Route path={"/search"} element={<Search />} />
         <Route path={"/favorite"} element={<Favorite />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
