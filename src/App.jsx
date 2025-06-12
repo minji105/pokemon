@@ -7,6 +7,7 @@ import Main from "./pages/Main";
 import Detail from "./pages/Detail";
 import Search from "./pages/Search";
 import Favorite from "./pages/Favorite";
+import Header from "./layout/header";
 
 function App() {
   const dispatch = useDispatch();
@@ -17,12 +18,15 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path={"/"} element={<Main />} />
-        <Route path={"/detail"} element={<Detail />} />
-        <Route path={"/search"} element={<Search />} />
-        <Route path={"/favorite"} element={<Favorite />} />
-      </Routes>
+      <main className="bg-[#f2f6f8] py-16">
+        <Header />
+        <Routes>
+          <Route path={"/"} element={<Main />} />
+          <Route path={"/detail"} element={<Detail />} />
+          <Route path={"/search"} element={<Search />} />
+          <Route path={"/favorite"} element={<Favorite />} />
+        </Routes>
+      </main>
     </BrowserRouter>
   );
 }

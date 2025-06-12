@@ -7,7 +7,7 @@ function Main() {
   if (!pokemonData?.data) return <div>로딩 중...</div>;
 
   return (
-    <div>
+    <div className="w-4/5 m-auto grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 border-2 border-black">
       {pokemonData.data.map((el) => (
         <Card key={el.id} pokemon={el} />
       ))}
