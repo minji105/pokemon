@@ -18,15 +18,13 @@ function App() {
 
   return (
     <BrowserRouter>
-      <main className="bg-[#f2f6f8] py-16">
-        <Header />
-        <Routes>
-          <Route path={"/"} element={<Main />} />
-          <Route path={"/detail"} element={<Detail />} />
-          <Route path={"/search"} element={<Search />} />
-          <Route path={"/favorite"} element={<Favorite />} />
-        </Routes>
-      </main>
+      <Header />
+      <Routes>
+        <Route path={"/"} element={<Main />} />
+        <Route path={"/detail/:pokemonId"} element={<Detail />} />
+        <Route path={"/search"} element={<Search />} />
+        <Route path={"/favorite"} element={<Favorite />} />
+      </Routes>
     </BrowserRouter>
   );
 }

@@ -1,5 +1,44 @@
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { selectPokemonById } from "../RTK/selector";
+import { useState } from "react";
+
 function Detail() {
-  return <div>Detail</div>;
+  const [isFront, setIsFront] = useState(true);
+  const { pokemonId } = useParams();
+  const pokemon = useSelector(selectPokemonById(Number(pokemonId)));
+  console.log(pokemon);
+
+  return (
+    <div className="w-4/5 m-auto border-2 border-black flex">
+      <div className="basis-1/2 p-12 flex flex-col items-center border-r-2 border-black">
+        <img className="w-full" src={isFront ? pokemon.front : pokemon.back} />
+        <button
+          className="w-min bg-black py-2 px-4 text-white text-2xl rounded-3xl border border-2 border-black
+                      hover:bg-transparent hover:text-black"
+          onClick={() => setIsFront((prev) => !prev)}
+        >
+          click
+        </button>
+      </div>
+      <div className="basis-1/2 px-4">
+        <p className="border-b-2 border-black py-4 text-xl font-semibold">
+          전국: {pokemon.id}
+        </p>
+        <p className="border-b-2 border-black py-4 text-xl font-semibold">
+          이름: {pokemon.name}
+        </p>
+        <p className="border-b-2 border-black py-4 text-xl font-semibold">
+          분류: {pokemon.genera}
+        </p>
+        <div className="py-4">
+          {pokemon.description.map((line) => (
+            <p className="text-xl font-semibold">{line}</p>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default Detail;
