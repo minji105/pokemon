@@ -17,7 +17,7 @@ function Detail() {
       >
         <img className="w-full" src={isFront ? pokemon.front : pokemon.back} />
         <button
-          className="w-min bg-black py-2 px-4 text-white text-2xl rounded-3xl border border-2 border-black
+          className="w-min bg-black py-2 px-4 text-white text-2xl rounded-3xl border-2 border-black
                       hover:bg-transparent hover:text-black active:bg-yellow-300"
           onClick={() => setIsFront((prev) => !prev)}
         >
