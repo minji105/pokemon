@@ -4,7 +4,10 @@ import Card from "../components/Card";
 function Main() {
   const pokemonData = useSelector((state) => state.pokemon);
 
-  if (!pokemonData?.data) return <div>로딩 중...</div>;
+  if (!pokemonData?.data)
+    return (
+      <div className="mt-[80px] flex justify-center text-5xl">Loading...</div>
+    );
 
   return (
     <div className="w-4/5 m-auto grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 border-2 border-black">
