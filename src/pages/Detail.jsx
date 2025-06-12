@@ -10,18 +10,21 @@ function Detail() {
   console.log(pokemon);
 
   return (
-    <div className="w-4/5 m-auto border-2 border-black flex">
-      <div className="basis-1/2 p-12 flex flex-col items-center border-r-2 border-black">
+    <div className="w-4/5 m-auto border-2 border-black grid md:grid-cols-[1fr_1fr] lg:grid-cols-[1fr_1fr]">
+      <div
+        className="basis-1/2 p-12 flex flex-col items-center border-black
+                      md:outline md:outline-1 lg:outline lg:outline-1"
+      >
         <img className="w-full" src={isFront ? pokemon.front : pokemon.back} />
         <button
           className="w-min bg-black py-2 px-4 text-white text-2xl rounded-3xl border border-2 border-black
-                      hover:bg-transparent hover:text-black"
+                      hover:bg-transparent hover:text-black active:bg-yellow-300"
           onClick={() => setIsFront((prev) => !prev)}
         >
           click
         </button>
       </div>
-      <div className="basis-1/2 px-4">
+      <div className="basis-1/2 px-4 md:outline md:outline-1 lg:outline lg:outline-1">
         <p className="border-b-2 border-black py-4 text-xl font-semibold">
           전국: {pokemon.id}
         </p>
