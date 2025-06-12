@@ -11,7 +11,11 @@ function App() {
   useEffect(() => {
     dispatch(fetchMultiplePokemonById(151));
   }, []);
-  return <></>;
+  return (
+    <>
+      <h1 className="text-lg text-center">hello</h1>
+    </>
+  );
 }
 
 export default App;
