@@ -26,7 +26,7 @@ function Detail() {
       </div>
       <div className="basis-1/2 px-4 md:outline md:outline-1 lg:outline lg:outline-1">
         <p className="border-b-2 border-black py-4 text-xl font-semibold">
-          전국: {pokemon.id}
+          전국: <span className="text-2xl">{pokemon.id}</span>
         </p>
         <p className="border-b-2 border-black py-4 text-xl font-semibold">
           이름: {pokemon.name}
