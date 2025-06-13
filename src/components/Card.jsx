@@ -6,7 +6,7 @@ function Card({ pokemon }) {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    setLoaded(false);
+    if (!pokemon.front) setLoaded(false);
   }, [pokemon.front]);
 
   return (
@@ -20,16 +20,21 @@ function Card({ pokemon }) {
       <div className="w-full h-12 flex items-center justify-center text-xl font-black border-b-2 border-black">
         {pokemon.name}
       </div>
-      {!loaded && (
-        <div className="m-4 w-full h-40 bg-gray-200 animate-pulse"></div>
-      )}
-      {pokemon.front && (
-        <img
-          className="m-4 w-full"
-          src={pokemon.front}
-          onLoad={() => setLoaded(true)}
-        />
-      )}
+      <div className="relative m-4 w-full h-40">
+        {!loaded && (
+          <div className="absolute top-0 left-0 w-full h-full bg-gray-200 animate-pulse rounded" />
+        )}
+        {pokemon.front && (
+          <img
+            className={`w-full h-full object-contain transition-opacity duration-200 ${
+              loaded ? "opacity-100" : "opacity-0"
+            }`}
+            src={pokemon.front}
+            onLoad={() => setLoaded(true)}
+            alt="Pokemon"
+          />
+        )}
+      </div>
     </section>
   );
 }
