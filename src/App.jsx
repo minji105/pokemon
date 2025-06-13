@@ -7,7 +7,7 @@ import Main from "./pages/Main";
 import Detail from "./pages/Detail";
 import Search from "./pages/Search";
 import Favorite from "./pages/Favorite";
-import Header from "./layout/header";
+import Header from "./layout/Header";
 
 function App() {
   const dispatch = useDispatch();

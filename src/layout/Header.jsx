@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
 
 function Header() {
+  const navigate = useNavigate();
   const [atTop, setAtTop] = useState(false);
   const headerRef = useRef(null);
 
@@ -38,8 +39,13 @@ function Header() {
             Go to Wishlist →
           </Link>
         </div>
-        <div className="px-4 py-2 md:py-4 lg:py-4 flex-grow flex items-center outline outline-1">
+        <div className="px-4 py-2 md:py-4 lg:py-4 flex-grow flex gap-4 justify-between items-center outline outline-1">
           Search
+          <input
+            type="text"
+            className="w-full bg-transparent border-b-2 border-black outline-none font-jersey text-xl"
+            onChange={(e) => navigate(`/search?pokemon=${e.target.value}`)}
+          />
         </div>
       </div>
     </header>
