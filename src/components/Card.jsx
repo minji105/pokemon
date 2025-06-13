@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import FavoriteButton from "./FavoriteButton";
 
 function Card({ pokemon }) {
   const navigate = useNavigate();
@@ -21,6 +22,7 @@ function Card({ pokemon }) {
         {pokemon.name}
       </div>
       <div className="relative m-4 w-full h-40">
+        <FavoriteButton pokemonId={pokemon.id} />
         {!loaded && (
           <div className="absolute top-0 left-0 w-full h-full bg-gray-200 animate-pulse rounded" />
         )}

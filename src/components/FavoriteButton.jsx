@@ -1,19 +1,66 @@
-import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { favoriteSlice } from "../RTK/slice";
 
-function FavoriteButton() {
+function FavoriteButton({ pokemonId }) {
+  const dispatch = useDispatch();
+
+  const isFavorite = useSelector((state) =>
+    state.favorite.some((item) => item === pokemonId)
+  );
+
   return (
-    <div>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="#000000"
-        width="800px"
-        height="800px"
-        viewBox="0 0 22 22"
-        id="memory-heart"
-      >
-        <path d="M12 20H10V19H9V18H8V17H7V16H6V15H5V14H4V13H3V12H2V10H1V5H2V4H3V3H4V2H9V3H10V4H12V3H13V2H18V3H19V4H20V5H21V10H20V12H19V13H18V14H17V15H16V16H15V17H14V18H13V19H12V20M5 11V12H6V13H7V14H8V15H9V16H10V17H12V16H13V15H14V14H15V13H16V12H17V11H18V9H19V6H18V5H17V4H14V5H13V6H12V7H10V6H9V5H8V4H5V5H4V6H3V9H4V11H5Z" />
-      </svg>
-    </div>
+    <button
+      className="w-7 absolute z-30"
+      onClick={(e) => {
+        e.stopPropagation();
+        dispatch(
+          isFavorite
+            ? favoriteSlice.actions.removeFromFavorite({ pokemonId })
+            : favoriteSlice.actions.addToFavorite({ pokemonId })
+        );
+      }}
+    >
+      {isFavorite ? (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="100%"
+          height="100%"
+          viewBox="0 0 20 20"
+          fill="red"
+          className="fill-red-500 stroke-black"
+          data-mds="IcBoldLikeFilled"
+        >
+          <path
+            d="M9.79493 16.3061C9.91046 16.4154 10.0895 16.4154 10.2051 16.3061C11.1045 15.4553 14.7235 12.0265 16.25 10.5C16.8895 9.85325 17.5 8.75 17.5 7.5C17.5 5.34156 15.8342 3.5 13.75 3.5C11.9105 3.5 11 4.99545 10 6.25C9 4.99545 8.08947 3.5 6.25 3.5C4.16579 3.5 2.5 5.34156 2.5 7.5C2.5 8.75 3.11053 9.85325 3.75 10.5C5.27651 12.0265 8.89549 15.4553 9.79493 16.3061Z"
+            fill=""
+            stroke=""
+            className="stroke-red fill-red"
+            strokeMiterlimit="10"
+            data-mds="IcBoldLikeFilled"
+            vectorEffect="non-scaling-stroke"
+          ></path>
+        </svg>
+      ) : (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="100%"
+          height="100%"
+          viewBox="0 0 20 20"
+          fill="none"
+          className=""
+          data-mds="IcBoldLike"
+        >
+          <path
+            d="M9.79493 16.3061C9.91046 16.4154 10.0895 16.4154 10.2051 16.3061C11.1045 15.4553 14.7235 12.0265 16.25 10.5C16.8895 9.85325 17.5 8.75 17.5 7.5C17.5 5.34156 15.8342 3.5 13.75 3.5C11.9105 3.5 11 4.99545 10 6.25C9 4.99545 8.08947 3.5 6.25 3.5C4.16579 3.5 2.5 5.34156 2.5 7.5C2.5 8.75 3.11053 9.85325 3.75 10.5C5.27651 12.0265 8.89549 15.4553 9.79493 16.3061Z"
+            strokeWidth="1.4"
+            strokeMiterlimit="10"
+            className="stroke-black"
+            data-mds="IcBoldLike"
+            vectorEffect="non-scaling-stroke"
+          ></path>
+        </svg>
+      )}
+    </button>
   );
 }
 
