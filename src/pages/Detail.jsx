@@ -10,7 +10,7 @@ function Detail() {
   const pokemon = useSelector(selectPokemonById(Number(pokemonId)));
 
   return (
-    <div className="relative w-4/5 m-auto border-2 border-black grid md:grid-cols-[1fr_1fr] lg:grid-cols-[1fr_1fr]">
+    <div className="relative w-4/5 mx-auto mb-15 border-2 border-black grid md:grid-cols-[1fr_1fr] lg:grid-cols-[1fr_1fr]">
       <FavoriteButton pokemonId={Number(pokemonId)} position="top-4 left-4" />
       <div className="basis-1/2 p-12 flex flex-col items-center border-black outline-1">
         <div className="w-full perspective-800">

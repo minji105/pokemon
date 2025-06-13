@@ -14,13 +14,13 @@ function Search() {
   return (
     <>
       {pokemon.length ? (
-        <div className="w-4/5 m-auto grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 border-2 border-black">
+        <div className="w-4/5 mx-auto mb-15 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 border-2 border-black">
           {pokemon.map((el) => (
             <Card key={el.id} pokemon={el} />
           ))}
         </div>
       ) : (
-        <div className="w-4/5 m-auto py-40 flex justify-center border-2 border-black text-xl font-bold">
+        <div className="w-4/5 mx-auto mb-15 py-40 flex justify-center border-2 border-black text-xl font-bold">
           검색 결과가 없습니다.
         </div>
       )}

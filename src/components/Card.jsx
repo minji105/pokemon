@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, memo } from "react";
 import FavoriteButton from "./FavoriteButton";
 
 function Card({ pokemon }) {
@@ -41,4 +41,4 @@ function Card({ pokemon }) {
   );
 }
 
-export default Card;
+export default memo(Card);
