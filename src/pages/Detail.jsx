@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { selectPokemonById } from "../RTK/selector";
 import { useState } from "react";
+import FavoriteButton from "../components/FavoriteButton";
 
 function Detail() {
   const [isFront, setIsFront] = useState(true);
@@ -9,7 +10,8 @@ function Detail() {
   const pokemon = useSelector(selectPokemonById(Number(pokemonId)));
 
   return (
-    <div className="w-4/5 m-auto border-2 border-black grid md:grid-cols-[1fr_1fr] lg:grid-cols-[1fr_1fr]">
+    <div className="relative w-4/5 m-auto border-2 border-black grid md:grid-cols-[1fr_1fr] lg:grid-cols-[1fr_1fr]">
+      <FavoriteButton pokemonId={Number(pokemonId)} position="top-4 left-4" />
       <div className="basis-1/2 p-12 flex flex-col items-center border-black outline outline-1">
         <img className="w-full" src={isFront ? pokemon.front : pokemon.back} />
         <button

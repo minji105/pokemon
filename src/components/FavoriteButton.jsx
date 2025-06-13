@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { favoriteSlice } from "../RTK/slice";
 
-function FavoriteButton({ pokemonId }) {
+function FavoriteButton({ pokemonId, position }) {
   const dispatch = useDispatch();
 
   const isFavorite = useSelector((state) =>
@@ -10,7 +10,7 @@ function FavoriteButton({ pokemonId }) {
 
   return (
     <button
-      className="w-7 absolute z-30"
+      className={`w-7 absolute z-30 ${position}`}
       onClick={(e) => {
         e.stopPropagation();
         dispatch(
