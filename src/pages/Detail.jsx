@@ -12,10 +12,10 @@ function Detail() {
   return (
     <div className="relative w-4/5 m-auto border-2 border-black grid md:grid-cols-[1fr_1fr] lg:grid-cols-[1fr_1fr]">
       <FavoriteButton pokemonId={Number(pokemonId)} position="top-4 left-4" />
-      <div className="basis-1/2 p-12 flex flex-col items-center border-black outline outline-1">
+      <div className="basis-1/2 p-12 flex flex-col items-center border-black outline-1">
         <div className="w-full perspective-800">
           <div
-            className={`relative w-full transition-transform duration-500 transform-style preserve-3d transfrom-3d ${
+            className={`relative w-full transition-transform duration-500 transform-style preserve-3d transform-3d ${
               flipped ? "rotate-y-180" : ""
             }`}
           >
@@ -36,7 +36,7 @@ function Detail() {
         </button>
       </div>
 
-      <div className="basis-1/2 px-4 outline outline-1">
+      <div className="basis-1/2 px-4 outline-1">
         <p className="border-b-2 border-black py-4 text-xl font-semibold">
           전국: <span className="text-2xl font-thin">{pokemon.id}</span>
         </p>

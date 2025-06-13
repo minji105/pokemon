@@ -26,7 +26,7 @@ function Header() {
                       md:grid-cols-[1fr_1fr] lg:grid-cols-[1fr_2fr]
                       ${atTop ? "border-b-2" : "border-b-0"}`}
     >
-      <div className="col-span-1 flex justify-center items-center outline outline-1">
+      <div className="col-span-1 flex justify-center items-center outline-1">
         <h1 className="p-2 text-7xl font-black">
           <Link to="/" onClick={handleScrollTop}>
             pokemon
@@ -34,12 +34,12 @@ function Header() {
         </h1>
       </div>
       <div className="flex flex-col text-2xl md:text-3xl lg:text-3xl">
-        <div className="px-4 py-2 md:py-4 lg:py-4 flex-grow flex items-center justify-end outline outline-1">
+        <div className="px-4 py-2 md:py-4 lg:py-4 flex-grow flex items-center justify-end outline-1">
           <Link to="/favorite" className="hover:underline">
             Go to Wishlist →
           </Link>
         </div>
-        <div className="px-4 py-2 md:py-4 lg:py-4 flex-grow flex gap-4 justify-between items-center outline outline-1">
+        <div className="px-4 py-2 md:py-4 lg:py-4 flex-grow flex gap-4 justify-between items-center outline-1">
           Search
           <input
             type="text"

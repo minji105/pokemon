@@ -12,7 +12,7 @@ function Card({ pokemon }) {
 
   return (
     <section
-      className="px-2 flex flex-col flex-grow items-center outline outline-1 hover:bg-teal-100 hover:cursor-pointer"
+      className="px-2 flex flex-col flex-grow items-center outline-1 hover:bg-teal-100 hover:cursor-pointer"
       onClick={() => navigate(`/detail/${pokemon.id}`)}
     >
       <div className="w-full h-12 flex items-center justify-center text-3xl font-black border-b-2 border-black">
