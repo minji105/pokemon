@@ -1,7 +1,13 @@
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 function Card({ pokemon }) {
   const navigate = useNavigate();
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    setLoaded(false);
+  }, [pokemon.front]);
 
   return (
     <section
@@ -14,10 +20,15 @@ function Card({ pokemon }) {
       <div className="w-full h-12 flex items-center justify-center text-xl font-black border-b-2 border-black">
         {pokemon.name}
       </div>
-      {pokemon.front ? (
-        <img className="m-4 w-full" src={pokemon.front} />
-      ) : (
+      {!loaded && (
         <div className="m-4 w-full h-40 bg-gray-200 animate-pulse"></div>
+      )}
+      {pokemon.front && (
+        <img
+          className="m-4 w-full"
+          src={pokemon.front}
+          onLoad={() => setLoaded(true)}
+        />
       )}
     </section>
   );
