@@ -14,8 +14,11 @@ function Card({ pokemon }) {
       <div className="w-full h-12 flex items-center justify-center text-xl font-black border-b-2 border-black">
         {pokemon.name}
       </div>
-      {/* <div>{pokemon.genera}</div> */}
-      <img className="m-4 w-full" src={pokemon.front} />
+      {pokemon.front ? (
+        <img className="m-4 w-full" src={pokemon.front} />
+      ) : (
+        <div className="m-4 w-full h-40 bg-gray-200 animate-pulse"></div>
+      )}
     </section>
   );
 }

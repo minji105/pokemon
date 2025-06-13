@@ -22,7 +22,7 @@ function Header() {
   return (
     <header
       ref={headerRef}
-      className={`w-4/5 m-auto grid  border-2 border-black sticky top-0 bg-[#f2f6f8]
+      className={`w-4/5 m-auto grid  border-2 border-black sticky top-0 bg-[#f2f6f8] z-10
                       md:grid-cols-[1fr_1fr] lg:grid-cols-[1fr_2fr]
                       ${atTop ? "border-b-2" : "border-b-0"}`}
     >
